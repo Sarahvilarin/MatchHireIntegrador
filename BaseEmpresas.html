@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MatchHire - Sem Bordas e Com Profundidade</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        /* 1. VARIÁVEIS DE TEMA E FONTES */
+        :root {
+            --bg-main: #9DC5BB;
+            --bg-dark: #162417;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .bg-main {
+            background-color: var(--bg-main) !important;
+        }
+
+        .bg-dark-custom {
+            background-color: var(--bg-dark) !important;
+        }
+
+        .text-dark-custom {
+            color: var(--bg-dark) !important;
+        }
+
+        .font-georgia {
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+
+        .nav-link-hover:hover,
+        .nav-link-hover.active {
+            background-color: var(--bg-dark);
+            color: white !important;
+        }
+
+        /* 2. LÓGICA DE HOVER NO DESKTOP (Efeito não nativo do Bootstrap) */
+        @media (min-width: 768px) {
+            #sidebar {
+                width: 80px;
+                transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                white-space: nowrap;
+                z-index: 1040;
+                padding-top: 85px;
+                /* Compensa a altura do Navbar */
+            }
+
+            #sidebar:hover {
+                width: 260px;
+            }
+
+            .hide-on-collapse {
+                opacity: 0;
+                transition: opacity 0.2s ease;
+                visibility: hidden;
+            }
+
+            #sidebar:hover .hide-on-collapse {
+                opacity: 1;
+                visibility: visible;
+                transition-delay: 0.1s;
+            }
+
+            /* Ajusta o conteúdo e rodapé respeitando a sidebar fechada */
+            #main-content,
+            #footer {
+                margin-left: 80px;
+                width: calc(100% - 80px);
+            }
+        }
+
+        .bg-aside {
+            background-color: #9DC5BB !important;
+            /* Troque pelo seu código hexadecimal */
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+
+
+    <!-- MENU SUPERIOR -->
+
+    <nav class="navbar fixed-top shadow-sm py-2 bg-main" style="z-index: 1050;">
+        <div class="container-fluid d-flex align-items-center justify-content-between px-3 px-md-4">
+
+            <div class="d-flex align-items-center gap-2 flex-fill">
+                <button class="btn btn-outline-dark border-0 fs-4 d-md-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebar">
+                    <i class="bi bi-list"></i>
+                </button>
+                <a class="navbar-brand d-flex align-items-center fs-3 m-0 p-0 font-georgia text-dark-custom" href="#">
+                    Match<span class="text-white">Hire</span>
+                    <img src="./logo.png" class="ms-2 d-none d-sm-block img-fluid" style="height: 40px;" alt="">
+                </a>
+            </div>
+
+            <div class="text-center d-none d-md-block flex-fill">
+                <a href="#" class="fs-2 fw-bold text-decoration-none font-georgia text-dark-custom">HOME</a>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-end flex-fill">
+                <div class="me-3 d-none d-lg-block text-end text-dark-custom lh-sm">
+                    <span class="d-block fw-bold">Senai</span>
+                </div>
+                <button class="border-0 bg-transparent p-0 shadow-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasProfile">
+                    <img src="personagem.png" class="rounded-circle border border-2 border-dark" style="height: 45px;"
+                        alt="Perfil">
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MENU SUPERIOR -->
+
+
+    <!-- MENU LATERAL🚀 -->
+
+    <aside id="sidebar" class="offcanvas-md offcanvas-start bg-aside shadow position-fixed top-0 start-0 h-100 border-0"
+        tabindex="-1">
+
+        <div class="offcanvas-header d-md-none border-bottom border-dark border-opacity-10 mt-2">
+            <h5 class="offcanvas-title font-georgia text-dark-custom fw-bold fs-3">Menu</h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"
+                data-bs-target="#sidebar"></button>
+        </div>
+
+        <div class="offcanvas-body d-flex flex-column p-0 h-100 overflow-x-hidden">
+
+            <div class="px-3 mt-4 mb-2 hide-on-collapse">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-text bg-transparent border-end-0 text-muted"
+                        style="border-color: #162417;"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control bg-transparent border-start-0 ps-0 shadow-none "
+                        style="border-color: #162417;" placeholder="Buscar...">
+                </div>
+            </div>
+
+            <div class="px-4 mt-3 mb-2 text-uppercase fw-bold text-muted small hide-on-collapse">Menu Principal</div>
+
+            <nav class="nav flex-column gap-1 p-2 flex-grow-1">
+                <a href="#"
+                    class="nav-link d-flex align-items-center text-dark-custom fw-medium rounded py-2 nav-link-hover">
+                    <div class="text-center" style="min-width: 40px;"><i class="bi bi-house-fill fs-5"></i></div>
+                    <span class="hide-on-collapse ms-2">Home</span>
+                </a>
+
+                <a href="#"
+                    class="nav-link d-flex align-items-center text-dark-custom fw-medium rounded py-2 nav-link-hover">
+                    <div class="text-center" style="min-width: 40px;"><i class="bi bi-person-badge fs-5"></i>
+                    </div>
+                    <span class="hide-on-collapse ms-2">Vagas</span>
+                </a>
+
+                <a href="#"
+                    class="nav-link d-flex align-items-center justify-content-between text-dark-custom fw-medium rounded py-2 nav-link-hover">
+                    <div class="d-flex align-items-center">
+                        <div class="text-center" style="min-width: 40px;"><i class="bi bi-person-fill-add fs-4"></i>
+                        </div>
+                        <span class="hide-on-collapse ms-2">Candidatos</span>
+                    </div>
+                    <span class="badge rounded-pill small hide-on-collapse me-2"
+                        style="background-color: #17B890;">12</span>
+                </a>
+
+
+                <a href="#"
+                    class="nav-link d-flex align-items-center text-dark-custom fw-medium rounded py-2 nav-link-hover">
+                    <div class="text-center" style="min-width: 40px;"><i class="bi bi-bookmark-heart-fill fs-5"></i>
+                    </div>
+                    <span class="hide-on-collapse ms-2">Match's</span>
+                </a>
+
+                <a href="#"
+                    class="nav-link d-flex align-items-center text-dark-custom fw-medium rounded py-2 nav-link-hover">
+                    <div class="text-center" style="min-width: 40px;"><i class="bi bi-calendar-week-fill fs-5"></i>
+                    </div>
+                    <span class="hide-on-collapse ms-2">Calendário</span>
+                </a>
+
+                <a href="#"
+                    class="nav-link d-flex align-items-center text-dark-custom fw-medium rounded py-2 nav-link-hover">
+                    <div class="text-center" style="min-width: 40px;"><i class="bi bi-person-fill-check fs-4"></i>
+                    </div>
+                    <span class="hide-on-collapse ms-2">Funcionários</span>
+                </a>
+
+
+                <a href="#collapseConfig" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                    aria-controls="collapseConfig"
+                    class="nav-link d-flex align-items-center justify-content-between text-dark-custom fw-medium rounded py-2 nav-link-hover">
+                    <div class="d-flex align-items-center">
+                        <div class="text-center" style="min-width: 40px;"><i class="bi bi-person-fill-gear fs-4"></i>
+                        </div>
+                        <span class="hide-on-collapse ms-2">Configuração</span>
+                    </div>
+                    <i class="bi bi-chevron-down small hide-on-collapse me-2"></i>
+                </a>
+
+                <div class="collapse hide-on-collapse ps-4" id="collapseConfig">
+                    <div class="nav flex-column gap-1 small block ps-3 border-start border-dark border-opacity-10">
+                        <a href="#" class="nav-link text-muted py-1 nav-link-hover rounded">Minha Conta</a>
+                        <a href="#" class="nav-link text-muted py-1 nav-link-hover rounded">Segurança</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="mt-auto w-100 border-top p-3 hide-on-collapse" style="background-color: #162417;">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center"
+                            style="width: 40px; height: 40px;">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+                        <div class="ms-2 leading-sm">
+                            <p class="mb-0 small fw-bold text-white">Senai</p>
+                            <span class="text-white" style="font-size: 0.75rem;">Empresa</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-sm btn-link text-danger p-0 shadow-none" title="Sair">
+                        <i class="bi bi-box-arrow-right fs-5"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- MENU LATERAL🚀 -->
+
+
+
+    <!-- BLOCO DE CONTEÚDO 🚥 -->
+
+    <main id="main-content" class="flex-grow-1 d-flex flex-column pt-5 mt-5 mt-md-4">
+        <div class="container-fluid px-3 px-md-4 pt-3 d-flex flex-column flex-grow-1">
+
+            <section class="bg-dark text-white rounded-start-5 shadow-lg p-4 p-md-5 overflow-hidden">
+
+                <!-- HERO -->
+                <div class="row align-items-center g-5 mb-5">
+
+                    <div class="col-12 col-xl-7">
+
+                        <span
+                            class="badge rounded-pill bg-success-subtle text-success-emphasis px-3 py-2 mb-4 fw-semibold">
+                            Plataforma Inteligente de Recrutamento
+                        </span>
+
+                        <h1 class="display-3 fw-bold lh-1 mb-4">
+                            O futuro do
+                            <span class="text-success">
+                                recrutamento
+                            </span>
+                            começa aqui.
+                        </h1>
+
+                        <p class="fs-5 text-white-50 lh-lg col-lg-10 mb-4">
+                            Conectamos talentos e empresas com automação inteligente,
+                            análise de perfil e decisões orientadas por dados.
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-3">
+
+                            <a href="#" class="btn btn-success btn-lg px-4 fw-semibold">
+                                Começar Agora
+                            </a>
+
+                            <a href="#" class="btn btn-outline-light btn-lg px-4 fw-semibold">
+                                Ver Plataforma
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <!-- INFO CARD -->
+                    <div class="col-12 col-xl-5">
+
+                        <div class="card border-0 bg-white bg-opacity-10 text-white rounded-5 shadow-lg">
+
+                            <div class="card-body p-4 p-lg-5">
+
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+
+                                    <div>
+                                        <small class="text-white-50 d-block mb-1">
+                                            Eficiência média
+                                        </small>
+
+                                        <h2 class="fw-bold mb-0">
+                                            +68%
+                                        </h2>
+                                    </div>
+
+                                    <div class="bg-success rounded-circle d-flex align-items-center justify-content-center"
+                                        style="width: 65px; height: 65px;">
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            fill="currentColor" viewBox="0 0 16 16">
+
+                                            <path fill-rule="evenodd"
+                                                d="M0 0h1v15h15v1H0V0Zm10 5a.5.5 0 0 1 .5-.5h4A.5.5 0 0 1 15 5v4a.5.5 0 0 1-1 0V6.707l-3.146 3.147a.5.5 0 0 1-.708 0L7.5 7.207 4.354 10.354a.5.5 0 1 1-.708-.708l3.5-3.5a.5.5 0 0 1 .708 0l2.646 2.647L13.293 6H10.5A.5.5 0 0 1 10 5Z" />
+
+                                        </svg>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="row g-3">
+
+                                    <div class="col-6">
+                                        <div class="bg-dark bg-opacity-50 rounded-4 p-3 h-100">
+                                            <h5 class="fw-bold mb-1">12k+</h5>
+                                            <small class="text-white-50">
+                                                Profissionais
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="bg-dark bg-opacity-50 rounded-4 p-3 h-100">
+                                            <h5 class="fw-bold mb-1">850+</h5>
+                                            <small class="text-white-50">
+                                                Empresas
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- CARDS -->
+                <div class="row g-4">
+
+                    <!-- CARD -->
+                    <div class="col-12 col-md-6 col-xl-4">
+
+                        <div class="card h-100 border-0 bg-white bg-opacity-10 text-white rounded-5 shadow-lg">
+
+                            <div class="card-body p-4 p-xl-5 d-flex flex-column">
+
+                                <div
+                                    class="bg-success bg-opacity-25 rounded-4 d-inline-flex align-items-center justify-content-center p-3 mb-4">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        viewBox="0 0 16 16">
+
+                                        <path
+                                            d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
+                                    </svg>
+
+                                </div>
+
+                                <h3 class="fw-bold mb-3">
+                                    Triagem Inteligente
+                                </h3>
+
+                                <p class="text-white-50 lh-lg mb-0">
+                                    IA avançada para identificar os melhores talentos
+                                    automaticamente e acelerar contratações.
+                                </p>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- CARD -->
+                    <div class="col-12 col-md-6 col-xl-4">
+
+                        <div class="card h-100 border-0 bg-white bg-opacity-10 text-white rounded-5 shadow-lg">
+
+                            <div class="card-body p-4 p-xl-5 d-flex flex-column">
+
+                                <div
+                                    class="bg-primary bg-opacity-25 rounded-4 d-inline-flex align-items-center justify-content-center p-3 mb-4">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        viewBox="0 0 16 16">
+
+                                        <path
+                                            d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1z" />
+                                    </svg>
+
+                                </div>
+
+                                <h3 class="fw-bold mb-3">
+                                    Dados Estratégicos
+                                </h3>
+
+                                <p class="text-white-50 lh-lg mb-0">
+                                    Métricas e relatórios completos para decisões
+                                    mais rápidas, seguras e eficientes.
+                                </p>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- CARD -->
+                    <div class="col-12 col-md-6 col-xl-4">
+
+                        <div class="card h-100 border-0 bg-white bg-opacity-10 text-white rounded-5 shadow-lg">
+
+                            <div class="card-body p-4 p-xl-5 d-flex flex-column">
+
+                                <div
+                                    class="bg-warning bg-opacity-25 rounded-4 d-inline-flex align-items-center justify-content-center p-3 mb-4">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                        viewBox="0 0 16 16">
+
+                                        <path
+                                            d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                    </svg>
+
+                                </div>
+
+                                <h3 class="fw-bold mb-3">
+                                    Experiência Humanizada
+                                </h3>
+
+                                <p class="text-white-50 lh-lg mb-0">
+                                    Feedback contínuo e acompanhamento próximo durante
+                                    toda a jornada profissional.
+                                </p>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+
+    <!-- BLOCO DE CONTEÚDO 🚥 -->
+
+
+
+    <!-- SEU PERFIL -->
+    <div class="offcanvas offcanvas-end bg-main border-0 shadow" tabindex="-1" id="offcanvasProfile">
+        <div class="offcanvas-header shadow-sm border-0">
+            <h5 class="offcanvas-title fw-bold">Seu Perfil</h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="text-center mb-4">
+                <img src="personagem.png" class="rounded-circle border border-3 border-white shadow"
+                    style="height: 120px;" alt="">
+                <h4 class="mt-3 mb-0">Senai Armando </h4>
+                <span class="badge bg-dark mt-2">ID #12343</span>
+            </div>
+            <div class="d-flex flex-column gap-3 mt-4">
+                <div class="bg-white bg-opacity-25 p-3 rounded-3">
+                    <i class="bi bi-envelope-fill me-2"></i> <small class="fw-bold">Email:</small><br>senai@gmail.com
+                </div>
+                <div class="bg-white bg-opacity-25 p-3 rounded-3">
+                    <i class="bi bi-calendar-check-fill me-2"></i> <small class="fw-bold">Fundação:</small><br>1982
+                </div>
+                <a href="#" class="btn btn-dark w-100 py-2 mt-2 shadow-sm"><i
+                        class="bi bi-file-earmark-pdf-fill me-2"></i> Abrir Currículo</a>
+                <button class="btn btn-outline-danger w-100 btn-sm mt-auto">Sair da Conta</button>
+            </div>
+        </div>
+    </div>
+    <!-- SEU PERFIL -->
+
+
+
+    <!-- FOOTER 🦶🦶🦶 -->
+    <footer id="footer" class="mt-auto py-5 bg-main shadow-lg">
+        <div class="container-fluid px-4 text-center text-md-start">
+            <div class="row g-4">
+
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-dark-custom">MatchHire</h5>
+                    <p class="small text-muted">O match perfeito entre carreira e empresa.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-dark-custom">Políticas</h5>
+                    <a href="arquivos/politica.html" class="text-decoration-none text-dark d-block small mb-1">Política
+                        de Privacidade</a>
+                    <a href="arquivos/Termos.html" class="text-decoration-none text-dark d-block small mb-1">Termos de
+                        uso</a>
+                    <a href="#" class="text-decoration-none text-dark d-block small">Política de Cookies</a>
+                </div>
+
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-dark-custom">Notificações</h5>
+                    <h6 class="text-dark d-block small mb-2">Para mais informações sobre atualizações no sistema,
+                        adicione seu email abaixo.</h6>
+                    <div class="input-group input-group-sm shadow-sm rounded">
+                        <input type="email" class="form-control border-0" placeholder="Seu e-mail">
+                        <button class="btn" style="background-color: #17B890;">Ok</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER 🦶🦶🦶-->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

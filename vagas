@@ -1,0 +1,18 @@
+<button class="btn btn-link p-0 text-muted shadow-none bookmark-btn"><i
+                                                    class="bi bi-bookmark fs-5"></i></button>
+                                        </div>
+                                        <div class="d-flex gap-2 flex-wrap mb-3 mt-2">
+                                            <span class="badge badge-vaga rounded-pill px-3 py-2">Sênior</span>
+                                            <span class="badge badge-vaga rounded-pill px-3 py-2">100% Remoto</span>
+                                        </div>
+                                        <p class="text-muted small mb-4 flex-grow-1 card-job-desc">Buscamos
+                                            desenvolvedor especialista em React, Node.js e ecossistema AWS para liderar
+                                            o desenvolvimento de nossa nova plataforma SaaS global.</p>
+                                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                                            <div>
+                                                <span class="d-block text-muted" style="font-size: 0.75rem;">Faixa
+                                                    Salarial</span>
+                                                <span class="fw-bold text-dark card-job-salary">R$ 12.000 - R$
+                                                    15.000</span>
+                                            </div>
+                                            <button class="btn btn-apply open-modal-btn">Ver Detalhes</button>

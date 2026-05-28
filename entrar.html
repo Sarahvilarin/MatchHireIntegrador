@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MatchHire - Sem Bordas e Com Profundidade</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <main id="main-content" class="flex-grow-1 d-flex flex-column pt-5 mt-5 mt-md-4">
+
+        <div class="container-fluid pt-3 pb-0 pe-0 ps-3 ps-md-4 d-flex flex-column flex-grow-1">
+
+            <div class="p-4 p-md-5 shadow-lg text-white d-flex flex-column flex-grow-1 justify-content-center"
+                style="background-image: linear-gradient(45deg, #162417 0%, #2a402c 100%); border-radius: 0; border-top-left-radius: 30px;">
+
+                <div class="row w-100 justify-content-center mx-0">
+                    <div class="col-12 px-0">
+
+                        <div class="d-flex justify-content-center mb-4">
+                            <ul class="nav nav-pills gap-3 " id="pills-tab-login" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    
+                                    <button class="nav-link nav-link-button active rounded-pill px-4 py-2 fs-5"
+                                        id="pills-login-empresa-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-login-empresa" type="button" role="tab"
+                                        aria-controls="pills-login-empresa" aria-selected="true">
+                                        <i class="bi bi-building me-2 "></i>Empresa
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    
+                                    <button class="nav-link nav-link-button rounded-pill px-4 py-2 fs-5 "
+                                        id="pills-login-candidato-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-login-candidato" type="button" role="tab"
+                                        aria-controls="pills-login-candidato" aria-selected="false">
+                                        <i class="bi bi-person-vcard me-2"></i>Candidato
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="tab-content" id="pills-tabContent-login">
+
+                            <div class="tab-pane fade show active" id="pills-login-empresa" role="tabpanel"
+                                aria-labelledby="pills-login-empresa-tab">
+                                <div class="p-4 p-md-5 text-dark shadow-lg login-card cor-fundo">
+                                    <div class="text-center mb-4">
+                                        <div class="mb-3">
+                                            <i class="bi bi-building" style="font-size: 3.5rem; color: #162417;"></i>
+                                        </div>
+                                        <h2 class="fw-bold font-georgia mb-2" style="color: #162417;">Acesso Empresarial
+                                        </h2>
+                                        <p class="text-dark opacity-75 small">Gerencie suas vagas e encontre talentos.
+                                        </p>
+                                    </div>
+
+                                    <form action="/login" method="POST">
+                                        <input type="hidden" name="tipo_usuario" value="empresa">
+
+                                        <div class="mb-3">
+                                            <label class="form-label fw-medium" style="color: #162417;">
+                                                <i class="bi bi-envelope me-2"></i>E-mail Corporativo
+                                            </label>
+                                            <input type="email" name="email" class="form-control form-control-custom"
+                                                placeholder="rh@empresa.com" required>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label class="form-label fw-medium" style="color: #162417;">
+                                                <i class="bi bi-lock me-2"></i>Senha
+                                            </label>
+                                            <input type="password" name="senha" class="form-control form-control-custom"
+                                                placeholder="Digite sua senha" required>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between align-items-center mb-4 small">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="lembrarEmpresa" style="cursor: pointer; border-color: #162417;">
+                                                <label class="form-check-label text-dark fw-medium" for="lembrarEmpresa"
+                                                    style="cursor: pointer;">
+                                                    Lembrar de mim
+                                                </label>
+                                            </div>
+                                            <a href="/recuperar-senha" class="link-custom">Esqueceu a senha?</a>
+                                        </div>
+
+                                        <button type="submit" class="btn-primeiro rounded-5 w-100 fs-5 py-2 mb-4">Entrar
+                                            como Empresa</button>
+
+                                        <div class="text-center mt-2 border-top border-dark border-opacity-10 pt-4">
+                                            <p class="mb-0 text-dark small">
+                                                Sua empresa ainda não tem conta? <br>
+                                                <a href="/cadastro" class="link-custom mt-1 d-inline-block"><i
+                                                        class="bi bi-box-arrow-in-right me-1"></i>Cadastre-se aqui</a>
+                                            </p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="pills-login-candidato" role="tabpanel"
+                                aria-labelledby="pills-login-candidato-tab">
+                                <div class="p-4 p-md-5 text-dark shadow-lg login-card cor-fundo">
+                                    <div class="text-center mb-4">
+                                        <div class="mb-3">
+                                            <i class="bi bi-person-circle"
+                                                style="font-size: 3.5rem; color: #162417;"></i>
+                                        </div>
+                                        <h2 class="fw-bold font-georgia mb-2" style="color: #162417;">Acesso do
+                                            Candidato</h2>
+                                        <p class="text-dark opacity-75 small">Acesse seu perfil e encontre a vaga ideal.
+                                        </p>
+                                    </div>
+
+                                    <form action="/login" method="POST">
+                                        <input type="hidden" name="tipo_usuario" value="candidato">
+
+                                        <div class="mb-3">
+                                            <label class="form-label fw-medium" style="color: #162417;">
+                                                <i class="bi bi-envelope me-2"></i>E-mail Pessoal
+                                            </label>
+                                            <input type="email" name="email" class="form-control form-control-custom"
+                                                placeholder="seuemail@provedor.com" required>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label class="form-label fw-medium" style="color: #162417;">
+                                                <i class="bi bi-lock me-2"></i>Senha
+                                            </label>
+                                            <input type="password" name="senha" class="form-control form-control-custom"
+                                                placeholder="Digite sua senha" required>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between align-items-center mb-4 small">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="lembrarCandidato"
+                                                    style="cursor: pointer; border-color: #162417;">
+                                                <label class="form-check-label text-dark fw-medium"
+                                                    for="lembrarCandidato" style="cursor: pointer;">
+                                                    Lembrar de mim
+                                                </label>
+                                            </div>
+                                            <a href="/recuperar-senha" class="link-custom">Esqueceu a senha?</a>
+                                        </div>
+
+                                        <button type="submit"
+                                            class="btn-primeiro rounded-5 w-100 fs-5 py-2 mb-4 bnt-primeiro">Entrar como
+                                            Candidato</button>
+
+                                        <div class="text-center mt-2 border-top border-dark border-opacity-10 pt-4">
+                                            <p class="mb-0 text-dark small">
+                                                Ainda não tem o seu perfil? <br>
+                                                <a href="/cadastro" class="link-custom mt-1 d-inline-block"><i
+                                                        class="bi bi-box-arrow-in-right me-1"></i>Cadastre-se aqui</a>
+                                            </p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="offcanvas offcanvas-end cor-fundo border-0 shadow" tabindex="-1" id="offcanvasProfile">
+            <div class="offcanvas-header shadow-sm border-0">
+                <h5 class="offcanvas-title fw-bold">Seu Perfil</h5>
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="text-center mb-4">
+                    <img src="personagem.png" class="rounded-circle border border-3 border-white shadow"
+                        style="height: 120px;" alt="">
+                    <h4 class="mt-3 mb-0">Sarah Oliveira</h4>
+                    <span class="badge bg-dark mt-2">ID #12343</span>
+                </div>
+                <div class="d-flex flex-column gap-3 mt-4">
+                    <div class="bg-white bg-opacity-25 p-3 rounded-3">
+                        <i class="bi bi-envelope-fill me-2"></i> <small class="fw-bold">Email:</small><br>sara@gmail.com
+                    </div>
+                    <div class="bg-white bg-opacity-25 p-3 rounded-3">
+                        <i class="bi bi-calendar-check-fill me-2"></i> <small
+                            class="fw-bold">Nascimento:</small><br>17/09/2008
+                    </div>
+                    <a href="#" class="btn btn-dark w-100 py-2 mt-2 shadow-sm"><i
+                            class="bi bi-file-earmark-pdf-fill me-2"></i> Abrir Currículo</a>
+                    <button class="btn btn-outline-danger w-100 btn-sm mt-auto">Sair da Conta</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

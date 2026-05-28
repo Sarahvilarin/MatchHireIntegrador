@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MatchHire - Sem Bordas e Com Profundidade</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+
+
+    <!-- MENU SUPERIOR -->
+    <nav class="navbar fixed-top shadow-sm py-2 cor-fundo" style="z-index: 1050;">
+        <div class="container-fluid d-flex align-items-center justify-content-between px-3 px-md-4">
+
+            <div class="d-flex align-items-center gap-2 flex-fill">
+                <button class="btn btn-outline-dark border-0 fs-4 d-md-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebar">
+                    <i class="bi bi-list"></i>
+                </button>
+                <a class="navbar-brand d-flex align-items-center fs-3 m-0 p-0 texto-escuro" href="#">
+                    Match<span class="text-white">Hire</span>
+                    <img src="./logo.png" class="ms-2 d-none d-sm-block img-fluid" style="height: 40px;" alt="">
+                </a>
+            </div>
+
+            <div class="text-center d-none d-md-block flex-fill">
+                <a href="#" class="fs-2 fw-bold text-decoration-none texto-escuro">HOME</a>
+            </div>
+
+
+            <div class="d-flex align-items-center justify-content-end flex-fill gap-3">
+                <a href="#" class="btn btn-primeiro rounded-5 px-4 py-2 fw-semibold d-none d-sm-block">
+                    Entrar
+                </a>
+                <a href="#" class="btn btn-primeiro rounded-5 px-4 py-2 fw-semibold d-none d-sm-block">
+                    Cadastre-se
+                </a>
+
+                <button class="border-0 bg-transparent p-0 shadow-none d-sm-none texto-escuro fs-1" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#sidebarConta">
+                    <i class="bi bi-person-circle"></i>
+                </button>
+            </div>
+
+            <div class="offcanvas offcanvas-end bg-menu" tabindex="-1" id="sidebarConta">
+                <div class="offcanvas-header border-custom-menu">
+                    <h5 class="offcanvas-title fw-bold texto-escuro">
+                        Minha Conta
+                    </h5>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas">
+                    </button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column gap-3 pt-4">
+                    <a href="#" class="btn btn-primeiro rounded-5 py-3 fw-semibold">
+                        Entrar
+                    </a>
+                    <a href="#" class="btn btn-primeiro rounded-5 py-3 fw-semibold">
+                        Cadastre-se
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </nav>
+    <!-- MENU SUPERIOR -->
+
+
+    <!-- MENU LATERAL🚀 -->
+
+    <aside id="sidebar" class="offcanvas-md offcanvas-start bg-menu shadow position-fixed top-0 start-0 h-100 border-0"
+        tabindex="-1">
+
+        <div class="offcanvas-header d-md-none border-bottom border-dark border-opacity-10 mt-2">
+            <h5 class="offcanvas-title texto-escuro fw-bold fs-3">Menu</h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"
+                data-bs-target="#sidebar"></button>
+        </div>
+
+        <div class="offcanvas-body d-flex flex-column p-0 h-100 overflow-x-hidden">
+
+            <div class="px-3 mt-4 mb-2 hide-on-collapse">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-text bg-transparent border-end-0 text-muted"
+                        style="border-color: #162417;"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control bg-transparent border-start-0 ps-0 shadow-none "
+                        style="border-color: #162417;" placeholder="Buscar...">
+                </div>
+            </div>
+
+            <div class="px-4 mt-3 mb-2 text-uppercase fw-bold text-muted small hide-on-collapse">Menu Principal</div>
+
+            <nav class="nav flex-column gap-1 p-2 flex-grow-1">
+                <a href="#" class="nav-link d-flex align-items-center texto-escuro fw-medium rounded py-2 link-hover">
+                    <div class="text-center" style="min-width: 40px;"><i class="bi bi-house-fill fs-5"></i></div>
+                    <span class="hide-on-collapse ms-2">Home</span>
+                </a>
+
+                <a href="#"
+                    class="nav-link d-flex align-items-center justify-content-between texto-escuro fw-medium rounded py-2 link-hover">
+                    <div class="d-flex align-items-center">
+                        <div class="text-center" style="min-width: 40px;"><i class="bi bi-person-badge fs-5"></i></div>
+                        <span class="hide-on-collapse ms-2">Vagas</span>
+                    </div>
+                </a>
+
+
+            </nav>
+
+        </div>
+    </aside>
+
+    <!-- MENU LATERAL🚀 -->
+
+
+
+    <!-- BLOCO DE CONTEÚDO 🚥 -->
+
+
+                    <div class="tab-pane fade" id="pills-candidato" role="tabpanel"
+                        aria-labelledby="pills-candidato-tab">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9">
+                                <div class="p-4 p-md-5 text-dark-custom shadow"
+                                    style="background-color: #9DC5BB; border-radius: 24px;">
+                                    <div class="text-center mb-4">
+                                        <h2 class="fw-bold font-georgia">Perfil de Candidato MatchHire</h2>
+                                        <p>Insira todas as informações solicitadas pela tabela `candidatos` e defina
+                                            suas tags de forma dinâmica.</p>
+                                    </div>
+
+                                    <form action="/cadastrar-candidato" method="POST" enctype="multipart/form-data">
+
+                                        <h5 class="section-title mt-0"><i class="bi bi-shield-lock me-2"></i>1.
+                                            Credenciais de Acesso (Tabela: usuarios)</h5>
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-medium">E-mail de Login</label>
+                                                <input type="email" name="email"
+                                                    class="form-control form-control-custom"
+                                                    placeholder="seuemail@provedor.com" required maxlength="180">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-medium">Senha</label>
+                                                <input type="password" name="senha"
+                                                    class="form-control form-control-custom"
+                                                    placeholder="Crie uma senha" required>
+                                            </div>
+                                        </div>
+
+                                        <h5 class="section-title"><i class="bi bi-person me-2"></i>2. Informações
+                                            Pessoais (Tabela: candidatos)</h5>
+                                        <div class="row g-3">
+                                            <div class="col-md-8">
+                                                <label class="form-label fw-medium">Nome Completo</label>
+                                                <input type="text" name="nome" class="form-control form-control-custom"
+                                                    placeholder="Insira seu nome completo" required maxlength="150">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label fw-medium">CPF</label>
+                                                <input type="text" name="cpf" class="form-control form-control-custom"
+                                                    placeholder="000.000.000-00" required maxlength="14">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label fw-medium">Idade</label>
+                                                <input type="number" name="idade"
+                                                    class="form-control form-control-custom" placeholder="Ex: 24"
+                                                    min="14" max="120">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label fw-medium">Telefone Celular</label>
+                                                <input type="text" name="telefone"
+                                                    class="form-control form-control-custom"
+                                                    placeholder="(00) 90000-0000" maxlength="20">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="form-label fw-medium">Anexar Currículo (`arquivo`)</label>
+                                                <input type="file" name="arquivo"
+                                                    class="form-control form-control-custom">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="form-label fw-medium">Breve descrição profissional /
+                                                    Objetivos</label>
+                                                <textarea name="descricao" class="form-control form-control-custom"
+                                                    rows="3"
+                                                    placeholder="Fale um pouco sobre sua carreira, conquistas e objetivos profissionais..."></textarea>
+                                            </div>
+                                        </div>
+
+                                        <h5 class="section-title"><i class="bi bi-geo-alt me-2"></i>3. Endereço
+                                            Residencial (Tabela: candidatos)</h5>
+                                        <div class="row g-3">
+                                            <div class="col-md-3">
+                                                <label class="form-label fw-medium">CEP</label>
+                                                <input type="text" name="cep" class="form-control form-control-custom"
+                                                    placeholder="00000-000" maxlength="10">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-medium">Rua / Logradouro</label>
+                                                <input type="text" name="rua" class="form-control form-control-custom"
+                                                    placeholder="Rua das Flores" maxlength="200">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label fw-medium">Número</label>
+                                                <input type="text" name="numero"
+                                                    class="form-control form-control-custom" placeholder="45 Ap 2"
+                                                    maxlength="20">
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class="form-label fw-medium">Bairro</label>
+                                                <input type="text" name="bairro"
+                                                    class="form-control form-control-custom" placeholder="Bairro"
+                                                    maxlength="100">
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class="form-label fw-medium">Cidade</label>
+                                                <input type="text" name="cidade"
+                                                    class="form-control form-control-custom" placeholder="Sua Cidade"
+                                                    maxlength="100">
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label fw-medium">Estado (UF)</label>
+                                                <input type="text" name="estado"
+                                                    class="form-control form-control-custom" placeholder="RJ"
+                                                    maxlength="2">
+                                            </div>
+                                        </div>
+
+                                        <h5 class="section-title"><i class="bi bi-tags me-2"></i>4. Palavras-Chave de
+                                            Habilidade (Tabela: palavras_chave)</h5>
+                                        <p class="text-danger fw-medium small mb-3"><i
+                                                class="bi bi-exclamation-circle me-1"></i> Atenção: Selecione no máximo
+                                            4 habilidades ao todo.</p>
+
+                                        <div class="mb-4">
+                                            <h6 class="fw-bold text-secondary mb-2"><i
+                                                    class="bi bi-pc-display me-1"></i> Pacote Office e Produtividade
+                                            </h6>
+                                            <div class="d-flex flex-wrap gap-2">
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_word"
+                                                        name="palavras_chave[]" value="Microsoft Word"><label
+                                                        for="kw_word">Word</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_excel_b"
+                                                        name="palavras_chave[]" value="Excel Básico"><label
+                                                        for="kw_excel_b">Excel Básico</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_excel_a"
+                                                        name="palavras_chave[]" value="Excel Avançado"><label
+                                                        for="kw_excel_a">Excel Avançado/VBA</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_ppt"
+                                                        name="palavras_chave[]" value="PowerPoint"><label
+                                                        for="kw_ppt">PowerPoint</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_gsuite"
+                                                        name="palavras_chave[]" value="Google Workspace"><label
+                                                        for="kw_gsuite">Google Workspace</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_pbi"
+                                                        name="palavras_chave[]" value="Power BI"><label
+                                                        for="kw_pbi">Power BI</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_trello"
+                                                        name="palavras_chave[]" value="Trello/Asana"><label
+                                                        for="kw_trello">Trello / Asana</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_jira"
+                                                        name="palavras_chave[]" value="Jira"><label
+                                                        for="kw_jira">Jira</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_notion"
+                                                        name="palavras_chave[]" value="Notion"><label
+                                                        for="kw_notion">Notion</label></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <h6 class="fw-bold text-secondary mb-2"><i class="bi bi-translate me-1"></i>
+                                                Idiomas</h6>
+                                            <div class="d-flex flex-wrap gap-2">
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_eng_b"
+                                                        name="palavras_chave[]" value="Inglês Básico"><label
+                                                        for="kw_eng_b">Inglês Básico</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_eng_i"
+                                                        name="palavras_chave[]" value="Inglês Intermediário"><label
+                                                        for="kw_eng_i">Inglês Intermediário</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_eng_f"
+                                                        name="palavras_chave[]" value="Inglês Fluente"><label
+                                                        for="kw_eng_f">Inglês Fluente</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_esp_b"
+                                                        name="palavras_chave[]" value="Espanhol Básico"><label
+                                                        for="kw_esp_b">Espanhol Básico</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_esp_i"
+                                                        name="palavras_chave[]" value="Espanhol Intermediário"><label
+                                                        for="kw_esp_i">Espanhol Intermediário</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_esp_f"
+                                                        name="palavras_chave[]" value="Espanhol Fluente"><label
+                                                        for="kw_esp_f">Espanhol Fluente</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_fra"
+                                                        name="palavras_chave[]" value="Francês"><label
+                                                        for="kw_fra">Francês</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_ale"
+                                                        name="palavras_chave[]" value="Alemão"><label
+                                                        for="kw_ale">Alemão</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_libras"
+                                                        name="palavras_chave[]" value="Libras"><label
+                                                        for="kw_libras">Libras</label></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <h6 class="fw-bold text-secondary mb-2"><i
+                                                    class="bi bi-code-slash me-1"></i> Tecnologia e Programação</h6>
+                                            <div class="d-flex flex-wrap gap-2">
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_py"
+                                                        name="palavras_chave[]" value="Python"><label
+                                                        for="kw_py">Python</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_js"
+                                                        name="palavras_chave[]" value="JavaScript"><label
+                                                        for="kw_js">JavaScript / TypeScript</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_java"
+                                                        name="palavras_chave[]" value="Java"><label
+                                                        for="kw_java">Java</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_csharp"
+                                                        name="palavras_chave[]" value="C# / .NET"><label
+                                                        for="kw_csharp">C# / .NET</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_php"
+                                                        name="palavras_chave[]" value="PHP"><label
+                                                        for="kw_php">PHP</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_sql"
+                                                        name="palavras_chave[]" value="Bancos de Dados SQL"><label
+                                                        for="kw_sql">Bancos de Dados SQL</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_nosql"
+                                                        name="palavras_chave[]" value="NoSQL"><label
+                                                        for="kw_nosql">NoSQL (MongoDB, etc)</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_react"
+                                                        name="palavras_chave[]" value="React / Angular / Vue"><label
+                                                        for="kw_react">React / Angular / Vue</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_node"
+                                                        name="palavras_chave[]" value="Node.js"><label
+                                                        for="kw_node">Node.js</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_cloud"
+                                                        name="palavras_chave[]" value="Cloud (AWS/Azure/GCP)"><label
+                                                        for="kw_cloud">Cloud (AWS/Azure/GCP)</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_git"
+                                                        name="palavras_chave[]" value="Git / GitHub"><label
+                                                        for="kw_git">Git / GitHub</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_devops"
+                                                        name="palavras_chave[]" value="DevOps / Docker"><label
+                                                        for="kw_devops">DevOps / Docker</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_suporte"
+                                                        name="palavras_chave[]" value="Suporte de TI / Redes"><label
+                                                        for="kw_suporte">Suporte de TI / Redes</label></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <h6 class="fw-bold text-secondary mb-2"><i class="bi bi-brush me-1"></i>
+                                                Marketing e Design</h6>
+                                            <div class="d-flex flex-wrap gap-2">
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_seo"
+                                                        name="palavras_chave[]" value="SEO / SEM"><label
+                                                        for="kw_seo">SEO / SEM</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_ads"
+                                                        name="palavras_chave[]" value="Tráfego Pago (Ads)"><label
+                                                        for="kw_ads">Tráfego Pago (Ads)</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_social"
+                                                        name="palavras_chave[]" value="Gestão de Redes Sociais"><label
+                                                        for="kw_social">Gestão de Redes Sociais</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_copy"
+                                                        name="palavras_chave[]" value="Copywriting"><label
+                                                        for="kw_copy">Copywriting</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_psd"
+                                                        name="palavras_chave[]"
+                                                        value="Adobe Photoshop / Illustrator"><label
+                                                        for="kw_psd">Photoshop / Illustrator</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_video"
+                                                        name="palavras_chave[]" value="Edição de Vídeo"><label
+                                                        for="kw_video">Edição de Vídeo</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_canva"
+                                                        name="palavras_chave[]" value="Canva"><label
+                                                        for="kw_canva">Canva</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_uxui"
+                                                        name="palavras_chave[]" value="UX/UI Design"><label
+                                                        for="kw_uxui">UX/UI Design</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_figma"
+                                                        name="palavras_chave[]" value="Figma"><label
+                                                        for="kw_figma">Figma</label></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <h6 class="fw-bold text-secondary mb-2"><i class="bi bi-briefcase me-1"></i>
+                                                Administração, Finanças e Negócios</h6>
+                                            <div class="d-flex flex-wrap gap-2">
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_adm"
+                                                        name="palavras_chave[]" value="Rotinas Administrativas"><label
+                                                        for="kw_adm">Rotinas Administrativas</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_fin"
+                                                        name="palavras_chave[]" value="Gestão Financeira"><label
+                                                        for="kw_fin">Gestão Financeira</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_cont"
+                                                        name="palavras_chave[]" value="Contabilidade / Fiscal"><label
+                                                        for="kw_cont">Contabilidade / Fiscal</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_dp"
+                                                        name="palavras_chave[]" value="Departamento Pessoal"><label
+                                                        for="kw_dp">Departamento Pessoal</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_rh"
+                                                        name="palavras_chave[]" value="Recrutamento e Seleção"><label
+                                                        for="kw_rh">Recrutamento e Seleção</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_erp"
+                                                        name="palavras_chave[]" value="Sistemas ERP (SAP, Totvs)"><label
+                                                        for="kw_erp">Sistemas ERP (SAP, Totvs)</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_pm"
+                                                        name="palavras_chave[]"
+                                                        value="Gestão de Projetos (Scrum/Ágil)"><label
+                                                        for="kw_pm">Gestão de Projetos (Ágil)</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_b2b"
+                                                        name="palavras_chave[]" value="Vendas B2B / B2C"><label
+                                                        for="kw_b2b">Vendas B2B / B2C</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_crm"
+                                                        name="palavras_chave[]" value="CRM (Salesforce, Hubspot)"><label
+                                                        for="kw_crm">CRM (Salesforce, Hubspot)</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_cs"
+                                                        name="palavras_chave[]"
+                                                        value="Customer Success / Atendimento"><label
+                                                        for="kw_cs">Customer Success / Atendimento</label></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-5">
+                                            <h6 class="fw-bold text-secondary mb-2"><i class="bi bi-people me-1"></i>
+                                                Habilidades Comportamentais (Soft Skills)</h6>
+                                            <div class="d-flex flex-wrap gap-2">
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_lider"
+                                                        name="palavras_chave[]" value="Liderança"><label
+                                                        for="kw_lider">Liderança</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_comunic"
+                                                        name="palavras_chave[]" value="Comunicação Assertiva"><label
+                                                        for="kw_comunic">Comunicação Assertiva</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_equipe"
+                                                        name="palavras_chave[]" value="Trabalho em Equipe"><label
+                                                        for="kw_equipe">Trabalho em Equipe</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_intel_emoc"
+                                                        name="palavras_chave[]" value="Inteligência Emocional"><label
+                                                        for="kw_intel_emoc">Inteligência Emocional</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_resolv"
+                                                        name="palavras_chave[]" value="Resolução de Problemas"><label
+                                                        for="kw_resolv">Resolução de Problemas</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_adapt"
+                                                        name="palavras_chave[]" value="Adaptabilidade"><label
+                                                        for="kw_adapt">Adaptabilidade</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_proat"
+                                                        name="palavras_chave[]" value="Proatividade"><label
+                                                        for="kw_proat">Proatividade</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_tempo"
+                                                        name="palavras_chave[]" value="Gestão de Tempo"><label
+                                                        for="kw_tempo">Gestão de Tempo</label></div>
+                                                <div class="keyword-chip"><input type="checkbox" id="kw_negoc"
+                                                        name="palavras_chave[]" value="Negociação"><label
+                                                        for="kw_negoc">Negociação</label></div>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-register w-100 rounded-pill fs-5"
+                                            style="background-color: #162417; border-color: #162417; color: white;">Criar
+                                            Perfil de Candidato</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
