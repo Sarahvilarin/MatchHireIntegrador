@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MatchHire - Sem Bordas e Com Profundidade</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- MENU SUPERIOR -->
+    <nav class="navbar fixed-top shadow-sm py-2 cor-fundo" style="z-index: 1050;">
+        <div class="container-fluid d-flex align-items-center justify-content-between px-3 px-md-4">
+
+            <div class="d-flex align-items-center gap-2 flex-fill">
+                <button class="btn btn-outline-dark border-0 fs-4 d-md-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebar">
+                    <i class="bi bi-list"></i>
+                </button>
+                <a class="navbar-brand d-flex align-items-center fs-3 m-0 p-0 texto-escuro" href="#">
+                    Match<span class="text-white">Hire</span>
+                    <img src="imagem/logo.png" class="ms-2 d-none d-sm-block img-fluid" style="height: 40px;" alt="">
+                </a>
+            </div>
+
+            <div class="text-center d-none d-md-block flex-fill">
+                <a href="HomeSemCadastro.html" class="fs-2 fw-bold text-decoration-none texto-escuro">HOME</a>
+            </div>
+
+
+            <div class="d-flex align-items-center justify-content-end flex-fill gap-3">
+                <a href="entrar.html" class="btn btn-primeiro rounded-5 px-4 py-2 fw-semibold d-none d-sm-block">
+                    Entrar
+                </a>
+                <a href="CadastrarCandidato.html" class="btn btn-primeiro rounded-5 px-4 py-2 fw-semibold d-none d-sm-block">
+                    Cadastre-se
+                </a>
+
+                <button class="border-0 bg-transparent p-0 shadow-none d-sm-none texto-escuro fs-1" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#sidebarConta">
+                    <i class="bi bi-person-circle"></i>
+                </button>
+            </div>
+
+            <div class="offcanvas offcanvas-end bg-menu" tabindex="-1" id="sidebarConta">
+                <div class="offcanvas-header border-custom-menu">
+                    <h5 class="offcanvas-title fw-bold texto-escuro">
+                        Minha Conta
+                    </h5>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas">
+                    </button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column gap-3 pt-4">
+                    <a href="entrar.html" class="btn btn-primeiro rounded-5 py-3 fw-semibold">
+                        Entrar
+                    </a>
+                    <a href="CadastrarCandidato.html" class="btn btn-primeiro rounded-5 py-3 fw-semibold">
+                        Cadastre-se
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </nav>
+    <!-- MENU SUPERIOR -->
+
+
+    <!-- MENU LATERAL🚀 -->
+
+    <aside id="sidebar" class="offcanvas-md offcanvas-start bg-menu shadow position-fixed top-0 start-0 h-100 border-0"
+        tabindex="-1">
+
+        <div class="offcanvas-header d-md-none border-bottom border-dark border-opacity-10 mt-2">
+            <h5 class="offcanvas-title texto-escuro fw-bold fs-3">Menu</h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"
+                data-bs-target="#sidebar"></button>
+        </div>
+
+        <div class="offcanvas-body d-flex flex-column p-0 h-100 overflow-x-hidden">
+
+            <div class="px-3 mt-4 mb-2 hide-on-collapse">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-text bg-transparent border-end-0 text-muted"
+                        style="border-color: #162417;"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control bg-transparent border-start-0 ps-0 shadow-none "
+                        style="border-color: #162417;" placeholder="Buscar...">
+                </div>
+            </div>
+
+            <div class="px-4 mt-3 mb-2 text-uppercase fw-bold text-muted small hide-on-collapse">Menu Principal</div>
+
+            <nav class="nav flex-column gap-1 p-2 flex-grow-1">
+                <a href="HomeSemCadastro.html" class="nav-link d-flex align-items-center texto-escuro fw-medium rounded py-2 link-hover">
+                    <div class="text-center" style="min-width: 40px;"><i class="bi bi-house-fill fs-5"></i></div>
+                    <span class="hide-on-collapse ms-2">Home</span>
+                </a>
+
+                <a href="VagasSemCadastro.html"
+                    class="nav-link d-flex align-items-center justify-content-between texto-escuro fw-medium rounded py-2 link-hover">
+                    <div class="d-flex align-items-center">
+                        <div class="text-center" style="min-width: 40px;"><i class="bi bi-person-badge fs-5"></i></div>
+                        <span class="hide-on-collapse ms-2">Vagas</span>
+                    </div>
+                </a>
+
+
+            </nav>
+
+        </div>
+    </aside>
+
+    <!-- MENU LATERAL🚀 -->
+
+    <!-- BLOCO DE CONTEÚDO 🚥 -->
+
+<main id="main-content" class="flex-grow-1 d-flex flex-column pt-5 mt-5 mt-md-4">
+    <div class="container-fluid pt-3 pb-5 pe-0 ps-3 ps-md-4 d-flex flex-column flex-grow-1">
+
+        <div class="p-4 p-md-5 shadow-lg text-white bg-dark-custom d-flex flex-column flex-grow-1"
+            style="background-image: linear-gradient(45deg, #162417 0%, #2a402c 100%); border-radius: 0; border-top-left-radius: 30px;">
+
+            <div class="row align-items-center g-5 mb-5">
+                <div class="tab-content" id="pills-tabContent">
+
+ <div class="d-flex justify-content-center mb-5">
+                        <ul class="nav nav-pills gap-3 custom-tabs" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active rounded-pill px-4 py-2 fs-5 btn-terceiro"
+                                    id="pills-empresa-tab" data-bs-toggle="pill" data-bs-target="#pills-empresa"
+                                    type="button" role="tab" aria-controls="pills-empresa" aria-selected="true">
+                                    <i class="bi bi-building me-2"></i>  <a href="CriarEmpresas.html">Sou Empresa</a>
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link rounded-pill px-4 py-2 fs-5 btn-segundo"
+                                    id="pills-candidato-tab" data-bs-toggle="pill" data-bs-target="#pills-candidato"
+                                    type="button" role="tab" aria-controls="pills-candidato" aria-selected="false">
+                                    <i class="bi bi-person-vcard me-2"></i> <a href="CadastrarCandidato.html">Sou Candidato</a> 
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-pane fade show active" id="pills-empresa" role="tabpanel" aria-labelledby="pills-empresa-tab">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9">
+                                
+                                <div class="p-4 p-md-5 text-dark-custom shadow-lg" style="background-color: #9DC5BB; border-radius: 24px;">
+                                    
+                                    <div class="text-center mb-5">
+                                        <h2 class="fw-bold font-georgia mb-2 text-dark">Cadastro Empresarial</h2>
+                                        <p class="text-muted">Preencha os dados da sua empresa para liberar o acesso à plataforma</p>
+                                    </div>
+
+                                    <form action="/cadastrar-empresa" method="POST" enctype="multipart/form-data" id="form-cadastro-empresa">
+                                        
+                                        <h5 class="section-title mt-0 mb-3 border-bottom pb-2 text-dark fw-bold">
+                                            <i class="bi bi-shield-lock me-2 text-success"></i>1. Informações de Acesso
+                                        </h5>
+                                        <div class="row g-3 mb-4">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-medium text-dark">E-mail Corporativo:</label>
+                                                <input type="email" name="email" class="form-control form-control-custom bg-white" placeholder="rh@empresa.com" required maxlength="180">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-medium text-dark">Senha do Sistema:</label>
+                                                <input type="password" name="senha" class="form-control form-control-custom bg-white" placeholder="Defina uma senha segura" required>
+                                            </div>
+                                        </div>
+
+                                        <h5 class="section-title mb-3 border-bottom pb-2 text-dark fw-bold">
+                                            <i class="bi bi-building me-2 text-success"></i>2. Dados Institucionais
+                                        </h5>
+                                        <div class="row g-3 mb-4">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-medium text-dark">Nome / Razão Social:</label>
+                                                <input type="text" name="nome" class="form-control form-control-custom bg-white" placeholder="Nome oficial da empresa" required maxlength="150">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label fw-medium text-dark">CNPJ:</label>
+                                                <input type="text" name="cnpj" id="cnpj" class="form-control form-control-custom bg-white" placeholder="00.000.000/0000-00" maxlength="18" required>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label fw-medium text-dark">Telefone:</label>
+                                                <input type="text" name="telefone" id="telefone" class="form-control form-control-custom bg-white" placeholder="(00) 00000-0000" maxlength="15" required>
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label fw-medium text-dark">Logotipo ou Documento de Identificação:</label>
+                                                <input type="file" name="arquivo" class="form-control form-control-custom bg-white">
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label fw-medium text-dark">Descrição / Quem Somos:</label>
+                                                <textarea name="descricao" class="form-control form-control-custom bg-white" rows="3" placeholder="Conte um pouco sobre a cultura e segmento da empresa..."></textarea>
+                                            </div>
+                                        </div>
+
+                                        <h5 class="section-title mb-3 border-bottom pb-2 text-dark fw-bold">
+                                            <i class="bi bi-geo-alt me-2 text-success"></i>3. Endereço da Sede
+                                        </h5>
+                                        <div class="row g-3 mb-4">
+                                            <div class="col-md-3">
+                                                <label class="form-label fw-medium text-dark">CEP:</label>
+                                                <input type="text" name="cep" id="cep" class="form-control form-control-custom bg-white" placeholder="00000-000" maxlength="9" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-medium text-dark">Rua/Logradouro:</label>
+                                                <input type="text" name="rua" class="form-control form-control-custom bg-white" placeholder="Ex: Av. Paulista" required>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label fw-medium text-dark">Número:</label>
+                                                <input type="text" name="numero" class="form-control form-control-custom bg-white" placeholder="123" required>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class="form-label fw-medium text-dark">Bairro:</label>
+                                                <input type="text" name="bairro" class="form-control form-control-custom bg-white" placeholder="Bairro" required>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class="form-label fw-medium text-dark">Cidade:</label>
+                                                <input type="text" name="cidade" class="form-control form-control-custom bg-white" placeholder="Cidade" required>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="form-label fw-medium text-dark">Estado (UF):</label>
+                                                <input type="text" name="estado" class="form-control form-control-custom bg-white" placeholder="UF" maxlength="2" required>
+                                            </div>
+                                        </div>
+
+                                        <h5 class="section-title mb-3 border-bottom pb-2 text-dark fw-bold">
+                                            <i class="bi bi-award me-2 text-success"></i>4. Escolha o seu Plano Corporativo
+                                        </h5>
+                                        
+                                        <div class="row g-3 mb-5">
+                                            <div class="col-md-4">
+                                                <input type="radio" name="planos_id" id="planos_basico" value="59.99" data-nome="Plano Básico" class="planos-input d-none" checked required>
+                                                <label class="planos-card p-4 h-100 w-100 text-center d-flex flex-column justify-content-between rounded-4 shadow-sm bg-white border cursor-pointer position-relative" for="planos_basico">
+                                                    <div>
+                                                        <h5 class="fw-bold mb-1 text-dark">Básico</h5>
+                                                        <span class="d-block mb-3 text-muted small">Até 100 funcionários</span>
+                                                    </div>
+                                                    <div class="fw-bold fs-4 my-2 text-success">
+                                                        R$ 59,99<span class="fs-6 fw-normal text-muted">/mês</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <input type="radio" name="planos_id" id="planos_pro" value="109.99" data-nome="Plano Profissional" class="planos-input d-none">
+                                                <label class="planos-card p-4 h-100 w-100 text-center d-flex flex-column justify-content-between rounded-4 shadow-sm bg-white border cursor-pointer position-relative" for="planos_pro">
+                                                    <div>
+                                                        <h5 class="fw-bold mb-1 text-dark">Profissional</h5>
+                                                        <span class="d-block mb-3 text-muted small">Até 1.000 funcionários</span>
+                                                    </div>
+                                                    <div class="fw-bold fs-4 my-2 text-success">
+                                                        R$ 109,99<span class="fs-6 fw-normal text-muted">/mês</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <input type="radio" name="planos_id" id="planos_enterprise" value="309.99" data-nome="Plano Enterprise" class="planos-input d-none">
+                                                <label class="planos-card p-4 h-100 w-100 text-center d-flex flex-column justify-content-between rounded-4 shadow-sm bg-white border cursor-pointer position-relative" for="planos_enterprise">
+                                                    <div>
+                                                        <h5 class="fw-bold mb-1 text-dark">Enterprise</h5>
+                                                        <span class="d-block mb-3 text-muted small">Até 10.000 funcionários</span>
+                                                    </div>
+                                                    <div class="fw-bold fs-4 my-2 text-success">
+                                                        R$ 309,99<span class="fs-6 fw-normal text-muted">/mês</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <h5 class="section-title mb-3 border-bottom pb-2 text-dark fw-bold">
+                                            <i class="bi bi-credit-card me-2 text-success"></i>5. Detalhes do Pagamento
+                                        </h5>
+                                        
+                                        <div class="row g-4">
+                                            <div class="col-lg-7">
+                                                <div class="d-flex gap-2 mb-3 bg-white p-1 rounded-3 border">
+                                                    <input type="radio" class="btn-check" name="metodo_pagamento" id="pay_pix" value="pix" checked>
+                                                    <label class="btn btn-payment-tab flex-grow-1 py-2 text-nowrap" for="pay_pix">
+                                                        <i class="bi bi-qr-code-scan me-1"></i> PIX
+                                                    </label>
+
+                                                    <input type="radio" class="btn-check" name="metodo_pagamento" id="pay_card" value="cartao">
+                                                    <label class="btn btn-payment-tab flex-grow-1 py-2 text-nowrap" for="pay_card">
+                                                        <i class="bi bi-credit-card-2-back me-1"></i> Cartão
+                                                    </label>
+
+                                                    <input type="radio" class="btn-check" name="metodo_pagamento" id="pay_boleto" value="boleto">
+                                                    <label class="btn btn-payment-tab flex-grow-1 py-2 text-nowrap" for="pay_boleto">
+                                                        <i class="bi bi-receipt me-1"></i> Boleto
+                                                    </label>
+                                                </div>
+
+                                                <div class="p-4 bg-white rounded-4 border shadow-sm text-dark min-height-payment">
+                                                    
+                                                    <div id="wrapper-pix" class="payment-method-container text-center text-md-start">
+                                                        <div class="row align-items-center g-3">
+                                                            <div class="col-md-5 text-center">
+                                                                <div class="position-relative d-inline-block p-3 bg-white border border-2 rounded-4 shadow-sm">
+                                                                    <svg class="mx-auto display-block" xmlns="http://www.w3.org/2000/svg" width="130" height="130" viewBox="0 0 29 29" style="color: #000;">
+                                                                        <path fill="currentColor" d="M0 0h7v7H0zm1 1v5h5V1zm8 0h1v1H9zm1 1h1v2h-1zm2 1h1v1h-1zm-3 1h1v1H9zm3 0h1v2h-1zm-2 2h1v1h-1zm5-5h7v7h-7zm1 1v5h5V1zm-6 8h1v1H9zm2 0h1v2h-1zm4 0h2v1h-2zm3 0h1v1h-1zm2 0h3v1h-3zm-9 1h1v3H9zm6 0h1v1h-1zm2 0h1v1h-1zm-5 1h2v1h-2zm3 0h1v2h-1zm4 0h1v1h-1zm1 0h1v3h-1zm-7 1h1v1h-1zm2 0h1v1h-1zm-11 2h7v7H0zm1 1v5h5V14zm11 0h1v1h-1zm2 0h2v1h-2zm3 0h1v1h-1zm2 0h2v1h-2zm-8 1h1v1h-1zm2 0h1v2h-1zm3 0h1v1h-1zm2 0h1v2h-1zm-6 1h1v3H9zm4 0h1v1h-1zm3 0h2v1h-2zm-7 1h1v1H9zm4 0h2v1h-2zm3 0h1v2h-1zm2 0h1v1h-1zm-9 1h1v1H9zm4 0h1v1h-1zm2 0h3v1h-3z"/>
+                                                                    </svg>
+                                                                    <span class="position-absolute top-100 start-50 translate-middle badge bg-danger rounded-pill shadow" id="pix-countdown">15:00</span>
+                                                                </div>
+                                                                <small class="d-block text-muted mt-3">Aguardando pagamento...</small>
+                                                            </div>
+                                                            <div class="col-md-7">
+                                                                <h6 class="fw-bold mb-1 text-dark"><i class="bi bi-lightning-charge-fill text-warning me-1"></i> Desconto & Ativação Instantânea</h6>
+                                                                <p class="small text-muted mb-3">Pague via PIX e tenha o sistema liberado imediatamente na sua conta corporativa.</p>
+                                                                
+                                                                <label class="form-label small fw-bold text-secondary mb-1">Copia e Cola:</label>
+                                                                <div class="input-group">
+                                                                    <input type="text" id="pix-copy-input" class="form-control form-control-sm bg-light text-truncate border-end-0" readonly value="00020126580014br.gov.bcb.pix013697a8e52c-87d4-4b53-a812-70b134988f01520400005303986540559.995802BR5925SuaEmpresaTecnologia6009SaoPaulo62070503***6304A1B2">
+                                                                    <button class="btn btn-dark btn-sm px-3 fw-bold" type="button" id="btn-copy-pix" onclick="executarCopiaPix()">
+                                                                        <i class="bi bi-clipboard me-1"></i> Copiar
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div id="wrapper-cartao" class="payment-method-container d-none">
+                                                        <div class="d-flex align-items-center justify-content-between mb-3 pb-2 border-bottom">
+                                                            <h6 class="fw-bold m-0"><i class="bi bi-credit-card-2-front me-1"></i> Crédito à Vista ou Parcelado</h6>
+                                                            <div class="fs-4 text-muted d-flex gap-2" id="card-flags-preview">
+                                                                <i class="bi bi-credit-card" id="flag-default"></i>
+                                                                <span id="flag-detected" class="badge bg-dark fs-6 d-none"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row g-2">
+                                                            <div class="col-md-12">
+                                                                <label class="form-label small fw-medium text-muted mb-1">Número do Cartão:</label>
+                                                                <input type="text" id="input-card-number" class="form-control form-control-sm" placeholder="0000 0000 0000 0000" maxlength="19">
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <label class="form-label small fw-medium text-muted mb-1">Nome Impresso:</label>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="Ex: JOAO O SILVA" style="text-transform: uppercase;">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="form-label small fw-medium text-muted mb-1">Validade:</label>
+                                                                <input type="text" id="input-card-expiry" class="form-control form-control-sm" placeholder="MM/AA" maxlength="5">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="form-label small fw-medium text-muted mb-1">Código CVV:</label>
+                                                                <input type="text" class="form-control form-control-sm" placeholder="123" maxlength="4">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div id="wrapper-boleto" class="payment-method-container d-none">
+                                                        <div class="text-center py-2">
+                                                            <div class="d-inline-flex p-3 bg-light rounded-circle mb-2 text-secondary">
+                                                                <i class="bi bi-upc-scan fs-3"></i>
+                                                            </div>
+                                                            <h6 class="fw-bold mb-1">Faturamento via Boleto Bancário</h6>
+                                                            <p class="small text-muted mb-3 mx-auto" style="max-width: 380px;">
+                                                                Vencimento em 3 dias. A liberação ocorre em até **48h úteis** após o pagamento.
+                                                            </p>
+                                                            <div class="p-2 bg-light rounded border text-monospace small text-truncate position-relative px-4 mb-2">
+                                                                34191.79001 01043.513184 91020.150008 7 98310000005999
+                                                            </div>
+                                                            <span class="text-muted text-center d-block style-obs">*O boleto em PDF será enviado ao e-mail de acesso.</span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-5">
+                                                <div class="p-4 rounded-4 h-100 d-flex flex-column justify-content-between border shadow-sm" style="background-color: rgba(255,255,255,0.45);">
+                                                    <div>
+                                                        <h6 class="fw-bold border-bottom pb-2 text-dark"><i class="bi bi-cart3 me-1"></i> Resumo da Contratação</h6>
+                                                        <div class="d-flex justify-content-between my-2 text-dark">
+                                                            <span id="summary-plan-name">Plano Básico</span>
+                                                            <span class="fw-bold" id="summary-plan-price">R$ 59,99</span>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between small text-muted my-1">
+                                                            <span>Taxa de adesão</span>
+                                                            <span class="text-success fw-bold">Grátis</span>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between small text-muted my-1">
+                                                            <span>Cobrança</span>
+                                                            <span>Mensal Recorrente</span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="pt-3 border-top mt-4">
+                                                        <div class="d-flex justify-content-between align-items-baseline mb-3 text-dark">
+                                                            <span class="fw-bold">Total a Pagar:</span>
+                                                            <span class="fs-3 fw-extrabold text-success font-monospace" id="summary-total-price">R$ 59,99</span>
+                                                        </div>
+                                                        
+                                                        <button type="submit" class="btn btn-primeiro w-100 rounded-pill py-3 fw-bold shadow transition-all d-flex align-items-center justify-content-center gap-2">
+                                                            <i class="bi bi-shield-check fs-5"></i> Finalizar E Ativar Conta
+                                                        </button>
+                                                        <div class="text-center mt-2">
+                                                            <small class="text-muted style-obs"><i class="bi bi-lock-fill"></i> Checkout 100% Criptografado</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+
+    const inputsPlanos = document.querySelectorAll('input[name="planos_id"]');
+    const labelPlanName = document.getElementById('summary-plan-name');
+    const labelPlanPrice = document.getElementById('summary-plan-price');
+    const labelTotalPrice = document.getElementById('summary-total-price');
+    const selectParcelas = document.getElementById('select-parcelas');
+
+    function recalcularResumo(valorPlano, nomePlano) {
+        labelPlanName.innerText = nomePlano;
+        labelPlanPrice.innerText = `R$ ${valorPlano.replace('.', ',')}`;
+        labelTotalPrice.innerText = `R$ ${valorPlano.replace('.', ',')}`;
+    
+    }
+
+    inputsPlanos.forEach(radio => {
+        radio.addEventListener('change', function() {
+            if(this.checked) {
+                recalcularResumo(this.value, this.getAttribute('data-nome'));
+            }
+        });
+    });
+    recalcularResumo("59.99", "Plano Básico");
+    const radioMetodos = document.querySelectorAll('input[name="metodo_pagamento"]');
+    const wrappers = {
+        pix: document.getElementById('wrapper-pix'),
+        cartao: document.getElementById('wrapper-cartao'),
+        boleto: document.getElementById('wrapper-boleto')
+    };
+
+    radioMetodos.forEach(radio => {
+        radio.addEventListener('change', function() {
+            Object.values(wrappers).forEach(el => el.classList.add('d-none'));
+            if(this.checked && wrappers[this.value]) {
+                wrappers[this.value].classList.remove('d-none');
+            }
+        });
+    });
+    function iniciarContagemRegressiva(duracaoSegundos, display) {
+        let tempo = duracaoSegundos, minutos, segundos;
+        const intervalo = setInterval(() => {
+            minutos = parseInt(tempo / 60, 10);
+            segundos = parseInt(tempo % 60, 10);
+
+            minutos = minutos < 10 ? "0" + minutos : minutos;
+            segundos = segundos < 10 ? "0" + segundos : segundos;
+
+            display.textContent = minutos + ":" + segundos;
+
+            if (--tempo < 0) {
+                clearInterval(intervalo);
+                display.textContent = "EXPIRADO";
+                display.classList.replace('bg-danger', 'bg-secondary');
+            }
+        }, 1000);
+    }
+    iniciarContagemRegressiva(15 * 60, document.getElementById('pix-countdown'));
+
+    function executarCopiaPix() {
+        const inputCode = document.getElementById('pix-copy-input');
+        const btnText = document.getElementById('btn-copy-pix');
+        
+        inputCode.select();
+        inputCode.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(inputCode.value);
+
+        const textoOriginal = btnText.innerHTML;
+        btnText.innerHTML = '<i class="bi bi-check-lg"></i> Copiado!';
+        btnText.classList.replace('btn-dark', 'btn-success');
+        setTimeout(() => {
+            btnText.innerHTML = textoOriginal;
+            btnText.classList.replace('btn-success', 'btn-dark');
+        }, 2500);
+    }
+
+    const inputCard = document.getElementById('input-card-number');
+    const inputExpiry = document.getElementById('input-card-expiry');
+    const flagDefault = document.getElementById('flag-default');
+    const flagDetected = document.getElementById('flag-detected');
+
+    inputCard.addEventListener('input', function(e) {
+        let v = e.target.value.replace(/\D/g, '');
+        v = v.replace(/(\d{4})(?=\d)/g, '$1 ');
+        e.target.value = v;
+        const puro = v.replace(/\s/g, '');
+        if (puro.startsWith('4')) {
+            flagDefault.classList.add('d-none');
+            flagDetected.className = "badge bg-primary text-white d-inline-block";
+            flagDetected.innerText = "Visa";
+        } else if (/^(5[1-5]|2[2-7])/.test(puro)) {
+            flagDefault.classList.add('d-none');
+            flagDetected.className = "badge bg-warning text-dark d-inline-block";
+            flagDetected.innerText = "Mastercard";
+        } else {
+            flagDefault.classList.remove('d-none');
+            flagDetected.classList.add('d-none');
+        }
+    });
+
+    inputExpiry.addEventListener('input', function(e) {
+        let v = e.target.value.replace(/\D/g, '');
+        if (v.length > 2) {
+            v = v.substring(0, 2) + '/' + v.substring(2, 4);
+        }
+        e.target.value = v;
+    });
+
+    document.getElementById('cnpj').addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, '');
+        value = value.replace(/^(\d{2})(\d)/, '$1.$2');
+        value = value.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+        value = value.replace(/\.(\d{3})(\d)/, '.$1/$2');
+        value = value.replace(/(\d{4})(\d)/, '$1-$2');
+        e.target.value = value;
+    });
+
+    document.getElementById('telefone').addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, '');
+        value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+        value = value.replace(/(\d{5})(\d)/, '$1-$2');
+        e.target.value = value;
+    });
+
+
+    document.getElementById('cep').addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, '');
+
+    value = value.replace(/^(\d{5})(\d)/, '$1-$2');
+
+    e.target.value = value;
+});
+
+document.getElementById('cep').addEventListener('blur', async function () {
+    const cep = this.value.replace(/\D/g, '');
+
+    if (cep.length !== 8) return;
+
+});
+
+</script>
+</body>
+
+</html>

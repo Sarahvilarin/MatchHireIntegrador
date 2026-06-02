@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MatchHire - Assistente</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+<!-- NAVBAR (mantida igual) -->
+    <!-- MENU SUPERIOR -->
+    <nav class="navbar fixed-top shadow-sm py-2 cor-fundo" style="z-index: 1050;">
+        <div class="container-fluid d-flex align-items-center justify-content-between px-3 px-md-4">
+
+            <div class="d-flex align-items-center gap-2 flex-fill">
+                <button class="btn btn-outline-dark border-0 fs-4 d-md-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebar">
+                    <i class="bi bi-list"></i>
+                </button>
+                <a class="navbar-brand d-flex align-items-center fs-3 m-0 p-0 texto-escuro" href="#">
+                    Match<span class="text-white">Hire</span>
+                    <img src="imagem/logo.png" class="ms-2 d-none d-sm-block img-fluid" style="height: 40px;" alt="">
+                </a>
+            </div>
+
+            <div class="text-center d-none d-md-block flex-fill">
+                <a href="HomeSemCadastro.html" class="fs-2 fw-bold text-decoration-none texto-escuro">HOME</a>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-end flex-fill gap-3">
+
+                <button class="btn p-0 border-0 d-flex align-items-center gap-1" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasProfile" title="Ver Perfil">
+                    <img src="imagem/personagem.png" alt="Perfil"
+                        class="rounded-circle border border-2 border-dark shadow-sm"
+                        style="height: 42px; width: 42px; object-fit: cover; background-color: #e9ecef;"
+                        onerror="this.style.display='none'; document.getElementById('fallback-icon').style.display='inline-block';">
+                    <i id="fallback-icon" class="bi bi-person-circle fs-2 texto-escuro" style="display: none;"></i>
+                </button>
+
+                <div class="offcanvas offcanvas-end cor-fundo border-0 shadow" tabindex="-1" id="offcanvasProfile"
+                    style="color: #162417;">
+                    <div class="offcanvas-header shadow-sm border-0">
+                        <h5 class="offcanvas-title fw-bold">Seu Perfil</h5>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"></button>
+                    </div>
+
+                    <div class="offcanvas-body">
+                        <div class="text-center mb-4">
+                            <img src="imagem/personagem.png" alt="Foto de perfil"
+                                class="rounded-circle border border-3 border-white shadow"
+                                style="height: 120px; width: 120px; object-fit: cover; background-color: #ccc;">
+                            <h4 class="mt-3 mb-0 fw-bold">Nome do Usuário</h4>
+                            <span class="badge bg-dark mt-2">ID #001</span>
+                        </div>
+
+                        <div class="d-flex flex-column gap-3 mt-4">
+                            <div class="bg-white bg-opacity-25 p-3 rounded-3 shadow-sm">
+                                <i class="bi bi-envelope-fill me-2"></i>
+                                <small class="fw-bold">Email:</small>
+                                <br>usuario@email.com
+                            </div>
+
+                            <div class="bg-white bg-opacity-25 p-3 rounded-3 shadow-sm">
+                                <i class="bi bi-shield-lock-fill me-2"></i>
+                                <small class="fw-bold">Tipo de Conta:</small>
+                                <br><span class="text-capitalize fw-semibold">Candidato</span>
+                            </div>
+
+                            <a href="#" class="btn btn-dark w-100 py-2 mt-2 shadow-sm">
+                                <i class="bi bi-file-earmark-pdf-fill me-2"></i> Abrir Meu Currículo
+                            </a>
+
+                            <button type="button" class="btn btn-danger w-100 py-2 mt-auto shadow-sm fw-medium">
+                                <i class="bi bi-box-arrow-right me-2"></i> Sair da Conta
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="offcanvas offcanvas-end bg-menu" tabindex="-1" id="sidebarConta">
+                <div class="offcanvas-header border-custom-menu">
+                    <h5 class="offcanvas-title fw-bold texto-escuro">Minha Conta</h5>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body d-flex flex-column gap-3 pt-4">
+                    <a href="entrar.html" class="btn btn-primeiro rounded-5 py-3 fw-semibold">Entrar</a>
+                    <a href="CadastrarCandidato.html"
+                        class="btn btn-primeiro rounded-5 py-3 fw-semibold">Cadastre-se</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- MENU SUPERIOR -->
+
+
+    <!-- MENU LATERAL🚀 -->
+
+    <aside id="sidebar" class="offcanvas-md offcanvas-start bg-menu shadow position-fixed top-0 start-0 h-100 border-0"
+        tabindex="-1">
+
+        <div class="offcanvas-header d-md-none border-bottom border-dark border-opacity-10 mt-2">
+            <h5 class="offcanvas-title texto-escuro fw-bold fs-3">Menu</h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"
+                data-bs-target="#sidebar"></button>
+        </div>
+
+        <div class="offcanvas-body d-flex flex-column p-0 h-100 overflow-x-hidden">
+
+            <div class="px-3 mt-4 mb-2 hide-on-collapse">
+                <div class="input-group input-group-sm">
+                    <span class="input-group-text bg-transparent border-end-0 text-muted"
+                        style="border-color: #162417;"><i class="bi bi-search"></i></span>
+                    <input type="text" class="form-control bg-transparent border-start-0 ps-0 shadow-none "
+                        style="border-color: #162417;" placeholder="Buscar...">
+                </div>
+            </div>
+
+            <div class="px-4 mt-3 mb-2 text-uppercase fw-bold text-muted small hide-on-collapse">Menu Principal</div>
+
+            <nav class="nav flex-column gap-1 p-2 flex-grow-1">
+                <a href="HomeCandidato.html"
+                    class="nav-link d-flex align-items-center texto-escuro fw-medium rounded py-2 link-hover">
+                    <div class="text-center" style="min-width: 40px;"><i class="bi bi-house-fill fs-5"></i></div>
+                    <span class="hide-on-collapse ms-2">Home</span>
+                </a>
+
+                <a href="VagasCandidato.html"
+                    class="nav-link d-flex align-items-center justify-content-between texto-escuro fw-medium rounded py-2 link-hover">
+                    <div class="d-flex align-items-center">
+                        <div class="text-center" style="min-width: 40px;"><i class="bi bi-person-badge fs-5"></i></div>
+                        <span class="hide-on-collapse ms-2">Vagas</span>
+                    </div>
+                </a>
+                <a href="MatchCandidato.html"
+                    class="nav-link d-flex align-items-center justify-content-between texto-escuro fw-medium rounded py-2 link-hover">
+                    <div class="d-flex align-items-center">
+                        <div class="text-center" style="min-width: 40px;"><i
+                                class="bi bi-chat-square-heart-fill fs-5"></i></div>
+                        <span class="hide-on-collapse ms-2">Match</span>
+                    </div>
+                </a>
+                <a href="AssistenteCandidato.html"
+                    class="nav-link d-flex align-items-center justify-content-between texto-escuro fw-medium rounded py-2 link-hover">
+                    <div class="d-flex align-items-center">
+                        <div class="text-center" style="min-width: 40px;"><i class="bi bi-phone-fill fs-5"></i></div>
+                        <span class="hide-on-collapse ms-2">Assistente</span>
+                    </div>
+                </a>
+                <a href="PerfilCandidato.html"
+                    class="nav-link d-flex align-items-center justify-content-between texto-escuro fw-medium rounded py-2 link-hover">
+                    <div class="d-flex align-items-center">
+                        <div class="text-center" style="min-width: 40px;"><i class="bi bi-person-fill fs-5"></i></div>
+                        <Seu class="hide-on-collapse ms-2">Seu Perfil</span>
+                    </div>
+                </a>
+
+
+            </nav>
+
+        </div>
+    </aside>
+
+<!-- MAIN -->
+<main id="main-content" class="flex-grow-1 d-flex flex-column pt-5 mt-5 mt-md-4">
+
+    <div class="container-fluid pt-3 pb-0 pe-0 ps-3 ps-md-4 d-flex flex-column flex-grow-1">
+
+        <div class="p-4 p-md-5 shadow-lg text-white d-flex flex-column flex-grow-1"
+            style="background: linear-gradient(45deg, #162417, #2a402c);
+            border-top-left-radius: 30px;">
+
+            <!-- HEADER -->
+            <div class="text-center mb-4">
+
+                <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center"
+                    style="width:90px;height:90px;background:rgba(255,255,255,0.15);">
+
+                    <i class="bi bi-robot fs-1 text-white"></i>
+
+                </div>
+
+                <h2 class="fw-bold">Assistente MatchHire</h2>
+                <p class="text-white-50">Tire dúvidas sobre a plataforma e carreira</p>
+
+            </div>
+
+            <!-- SUGESTÕES -->
+            <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
+
+                <button class="btn btn-light rounded-pill sugestao-btn">Como me candidatar?</button>
+                <button class="btn btn-light rounded-pill sugestao-btn">Como funciona o Match?</button>
+                <button class="btn btn-light rounded-pill sugestao-btn">Dicas para currículo</button>
+                <button class="btn btn-light rounded-pill sugestao-btn">Preparação para entrevista</button>
+
+            </div>
+
+            <!-- CHAT -->
+            <div class="row justify-content-center flex-grow-1">
+
+                <div class="col-lg-10">
+
+                    <div class="card border-0 rounded-4 shadow-lg h-100"
+                        style="background: var(--cor-fundo);">
+
+                        <div id="chat-messages"
+                            class="card-body p-4"
+                            style="height:450px; overflow-y:auto;">
+
+                            <!-- MENSAGEM INICIAL -->
+                            <div class="d-flex mb-3">
+
+                                <div class="p-3 rounded-4 shadow-sm"
+                                    style="background:#f8f9fa; max-width:80%;">
+
+                                    <strong>🤖 Assistente</strong>
+                                    <p class="mb-0 mt-2">
+                                        Olá! Como posso te ajudar hoje?
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- INPUT -->
+                        <div class="card-footer bg-white border-0 p-3">
+
+                            <div class="input-group">
+
+                                <input id="mensagemInput"
+                                    type="text"
+                                    class="form-control rounded-pill"
+                                    placeholder="Digite sua dúvida...">
+
+                                <button id="btnEnviar"
+                                    class="btn btn-success rounded-pill ms-2 px-4">
+
+                                    <i class="bi bi-send-fill"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- SCRIPT -->
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // 1. Base de Conhecimento (MatchHire Context)
+    const KnowledgeBase = [
+        {
+            id: "sobre_matchhire",
+            keywords: ["o que e a matchhire", "sobre a matchhire", "como funciona", "quem somos", "plataforma", "objetivo"],
+            responses: ["A <strong>MatchHire</strong> é uma plataforma inteligente de recrutamento. Nosso objetivo é conectar os melhores talentos às empresas ideais através de um sistema de 'Match' avançado. 🚀"]
+        },
+        {
+            id: "match_algoritmo",
+            keywords: ["como funciona o match", "algoritmo", "compatibilidade", "dar match", "porcentagem"],
+            responses: ["Nosso sistema de <strong>Match</strong> analisa as palavras-chave do seu currículo e suas skills, cruzando com os requisitos da vaga. Quanto mais completo for o seu perfil, maior será a sua porcentagem de compatibilidade! 🎯"]
+        },
+        {
+            id: "cadastro_perfil",
+            keywords: ["cadastro", "criar conta", "meu perfil", "cadastrar", "atualizar", "completar"],
+            responses: ["Para criar ou atualizar seu perfil, acesse <strong>'Meu Perfil'</strong> no menu. Preencha Experiência, Formação e Habilidades (Skills). Um perfil 100% completo aumenta suas chances em até 80%! 📝"]
+        },
+        {
+            id: "candidatura",
+            keywords: ["candidatar", "candidatura", "status", "acompanhar", "processo seletivo", "vaga"],
+            responses: ["Você pode se candidatar na aba <strong>'Oportunidades'</strong>. O status do processo (em análise, entrevista, etc) fica disponível no seu painel. Lembre-se de checar sua caixa de mensagens na MatchHire regularmente! 📊"]
+        },
+        {
+            id: "empresas",
+            keywords: ["empresas", "recrutador", "anunciar vaga", "para empresas", "contratar", "kanban"],
+            responses: ["<strong>Para Empresas:</strong> Oferecemos um painel onde você anuncia vagas, gerencia candidatos via Kanban e usa nossa IA para ranquear os perfis mais compatíveis, economizando horas de triagem manual. 🏢💼"]
+        },
+        {
+            id: "preco",
+            keywords: ["preco", "custo", "pagar", "mensalidade", "gratis", "gratuito"],
+            responses: ["A plataforma é <strong>100% gratuita para candidatos!</strong> 💚 Cobramos apenas das empresas que utilizam nosso software de gestão de processos seletivos."]
+        },
+        {
+            id: "saudacao",
+            keywords: ["ola", "oi", "bom dia", "boa tarde", "boa noite", "tudo bem", "opa"],
+            responses: ["Olá! Sou o assistente virtual da MatchHire. Posso te explicar como nossa plataforma funciona, como dar 'match' com vagas ou dar dicas de carreira. Como posso ajudar hoje? 💙"]
+        },
+        {
+            id: "curriculo",
+            keywords: ["curriculo", "cv", "resume", "curriculum", "experiencia"],
+            responses: ["<strong>Dica de Currículo:</strong> Na MatchHire, seu perfil digital é o seu currículo. Foque em resultados, não apenas em tarefas. Em vez de dizer 'Responsável pelas vendas', use 'Aumentei as vendas em 15%'. Preencha suas Habilidades com os termos exatos da sua área!"]
+        },
+        {
+            id: "entrevista",
+            keywords: ["entrevista", "entrevistas", "entrevistador", "entrevistar"],
+            responses: ["<strong>Preparação para Entrevista:</strong> Quando for chamado via MatchHire, use o método STAR nas suas respostas: <br><br>• <strong>S</strong>ituação<br>• <strong>T</strong>arefa<br>• <strong>A</strong>ção<br>• <strong>R</strong>esultado."]
+        }
+    ];
+
+    const DefaultResponses = [
+        "Hmm, não encontrei uma resposta exata para isso na minha base. Mas sou especialista na MatchHire! Posso te ajudar a preencher seu perfil, buscar vagas ou dar dicas de entrevista. O que prefere?"
+    ];
+
+    // 2. Arquitetura do Chatbot
+    class MatchHireBot {
+        constructor() {
+            this.input = document.getElementById("mensagemInput");
+            this.btn = document.getElementById("btnEnviar");
+            this.chat = document.getElementById("chat-messages");
+            this.isTyping = false;
+
+            this.setupAccessibility();
+            this.bindEvents();
+            this.sendWelcomeMessage();
+        }
+
+        setupAccessibility() {
+            // Permite que leitores de tela anunciem novas mensagens automaticamente
+            this.chat.setAttribute("aria-live", "polite");
+            this.chat.setAttribute("role", "log");
+        }
+
+        bindEvents() {
+            this.btn.addEventListener("click", () => this.handleSend());
+            this.input.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    this.handleSend();
+                }
+            });
+
+            document.querySelectorAll(".sugestao-btn").forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    this.input.value = e.target.textContent;
+                    this.handleSend();
+                });
+            });
+        }
+
+        scrollToBottom() {
+            this.chat.scrollTo({ top: this.chat.scrollHeight, behavior: 'smooth' });
+        }
+
+        getCurrentTime() {
+            return new Intl.DateTimeFormat('pt-BR', { hour: '2-digit', minute: '2-digit' }).format(new Date());
+        }
+
+        normalizeText(text) {
+            return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        // NOVIDADE: Algoritmo de Scoring para encontrar a melhor intenção
+        getBestIntentResponse(userText) {
+            const normalizedText = this.normalizeText(userText);
+            let bestIntent = null;
+            let maxScore = 0;
+            
+            for (const intent of KnowledgeBase) {
+                let score = 0;
+                for (const kw of intent.keywords) {
+                    // Se a frase contém a palavra-chave, ganha pontos baseados no tamanho da palavra
+                    if (normalizedText.includes(kw)) {
+                        score += kw.length; 
+                    }
+                }
+                if (score > maxScore) {
+                    maxScore = score;
+                    bestIntent = intent;
+                }
+            }
+            
+            if (bestIntent) {
+                const randomIndex = Math.floor(Math.random() * bestIntent.responses.length);
+                return bestIntent.responses[randomIndex];
+            }
+            
+            return DefaultResponses[Math.floor(Math.random() * DefaultResponses.length)];
+        }
+
+        createMessageHTML(text, isBot, isHTML = false) {
+            const time = this.getCurrentTime();
+            const alignClass = isBot ? "justify-content-start" : "justify-content-end";
+            const bgClass = isBot ? "bg-white text-dark border shadow-sm" : "text-white shadow-sm";
+            const gradientStyle = isBot ? "" : "background: linear-gradient(45deg, #162417, #2a402c);";
+            const icon = isBot ? "🤖 " : "";
+
+            const container = document.createElement("div");
+            container.className = `d-flex ${alignClass} mb-3 w-100`;
+
+            const bubble = document.createElement("div");
+            bubble.className = `p-3 rounded-4 position-relative ${bgClass}`;
+            bubble.style.cssText = `max-width: 85%; word-break: break-word; font-size: 0.95rem; line-height: 1.5; ${gradientStyle}`;
+            
+            // Container para o texto (seguro contra XSS)
+            const textContainer = document.createElement("span");
+            if (isBot && isHTML) {
+                textContainer.innerHTML = icon + text;
+            } else {
+                textContainer.textContent = icon + text;
+            }
+
+            // Timestamp visualmente discreto
+            const timeSpan = document.createElement("div");
+            timeSpan.className = "text-end mt-1";
+            timeSpan.style.cssText = `font-size: 0.7rem; opacity: 0.7; ${isBot ? 'color: #888;' : 'color: #d1dfd2;'}`;
+            timeSpan.textContent = time;
+
+            bubble.appendChild(textContainer);
+            bubble.appendChild(timeSpan);
+            container.appendChild(bubble);
+
+            return container;
+        }
+
+        showTypingIndicator() {
+            const container = document.createElement("div");
+            container.className = "d-flex justify-content-start mb-3 w-100";
+            container.id = "typing-indicator-container";
+
+            const bubble = document.createElement("div");
+            bubble.className = "p-3 rounded-4 bg-white border shadow-sm d-flex align-items-center gap-1";
+            bubble.style.cssText = "max-width: 85%; height: 50px;";
+            
+            // Bolinhas de digitação animadas
+            bubble.innerHTML = `
+                <div style="width: 6px; height: 6px; background: #888; border-radius: 50%; animation: blink 1.4s infinite both;"></div>
+                <div style="width: 6px; height: 6px; background: #888; border-radius: 50%; animation: blink 1.4s infinite both; animation-delay: 0.2s;"></div>
+                <div style="width: 6px; height: 6px; background: #888; border-radius: 50%; animation: blink 1.4s infinite both; animation-delay: 0.4s;"></div>
+                <style>@keyframes blink { 0%, 80%, 100% { opacity: 0.2; } 40% { opacity: 1; } }</style>
+            `;
+
+            container.appendChild(bubble);
+            this.chat.appendChild(container);
+            this.scrollToBottom();
+        }
+
+        removeTypingIndicator() {
+            const indicator = document.getElementById("typing-indicator-container");
+            if (indicator) indicator.remove();
+        }
+
+        sendWelcomeMessage() {
+            setTimeout(() => {
+                const msg = this.createMessageHTML("Olá! Sou o assistente virtual da <strong>MatchHire</strong>. Posso te explicar como nossa plataforma funciona, como dar 'match' com vagas ou dar dicas de carreira. Como posso ajudar? 💙", true, true);
+                this.chat.appendChild(msg);
+                this.scrollToBottom();
+            }, 500);
+        }
+
+        async handleSend() {
+            const text = this.input.value.trim();
+            if (!text || this.isTyping) return;
+
+            // Bloqueio de estado (Anti-Spam)
+            this.isTyping = true;
+            this.input.value = "";
+            this.btn.disabled = true;
+
+            // 1. Mensagem do Usuário
+            this.chat.appendChild(this.createMessageHTML(text, false));
+            this.scrollToBottom();
+
+            // 2. Indicador de IA "pensando"
+            this.showTypingIndicator();
+
+            // 3. Processamento via Algoritmo de Scoring
+            const response = this.getBestIntentResponse(text);
+            const delay = Math.floor(Math.random() * 600) + 800; // Realismo no tempo de resposta
+            
+            setTimeout(() => {
+                this.removeTypingIndicator();
+                this.chat.appendChild(this.createMessageHTML(response, true, true));
+                this.scrollToBottom();
+                
+                // Libera o chat
+                this.isTyping = false;
+                this.btn.disabled = false;
+                this.input.focus();
+            }, delay);
+        }
+    }
+
+    // Inicializa a magia
+    new MatchHireBot();
+});
+    
+    // 1. Base de Conhecimento Expandida (Intents)
+    const KnowledgeBase = [
+        {
+            keywords: ["ola", "oi", "bom dia", "boa tarde", "boa noite", "tudo bem", "opa"],
+            responses: [
+                "Olá! Sou o assistente de carreiras da MatchHire. Posso te ajudar com dicas de currículo, preparação para entrevistas, LinkedIn ou negociação salarial. O que você precisa hoje?",
+                "Oi! Que bom ter você por aqui. Estou pronto para tirar suas dúvidas sobre processos seletivos e carreira. Como posso te ajudar?"
+            ]
+        },
+        {
+            keywords: ["tchau", "obrigado", "obrigada", "valeu", "adeus", "encerrar"],
+            responses: [
+                "Foi um prazer ajudar! Se precisar de mais alguma orientação no futuro, estarei por aqui. Boa sorte na sua jornada profissional!",
+                "Por nada! Desejo muito sucesso na sua carreira. Se surgir outra dúvida, é só chamar."
+            ]
+        },
+        {
+            keywords: ["curriculo", "cv", "resume", "curriculum"],
+            responses: [
+                "<strong>Dica de Currículo:</strong> Foque em resultados, não apenas em tarefas. Em vez de dizer 'Responsável pelas vendas', use 'Aumentei as vendas da região em 15% em 6 meses'. Números chamam a atenção dos recrutadores.",
+                "<strong>Formatação de Currículo:</strong> Menos é mais. Evite gráficos complexos, barras de nível de habilidade e fotos (a menos que seja exigido). Use um layout limpo, fonte legível e sempre envie em formato <strong>PDF</strong>.",
+                "<strong>Para passar pelos filtros (ATS):</strong> Grandes empresas usam robôs para ler currículos. Para ser aprovado, leia a descrição da vaga e garanta que as <strong>palavras-chave</strong> exigidas (ferramentas, habilidades) estejam escritas exatamente da mesma forma no seu currículo."
+            ]
+        },
+        {
+            keywords: ["entrevista", "entrevistas", "entrevistador"],
+            responses: [
+                "<strong>O Método STAR:</strong> Quando pedirem exemplos de situações passadas, responda usando o método STAR: <br><br>• <strong>S</strong>ituação (o contexto)<br>• <strong>T</strong>arefa (qual era o desafio)<br>• <strong>A</strong>ção (o que VOCÊ fez)<br>• <strong>R</strong>esultado (o impacto gerado).",
+                "<strong>Perguntas no final da entrevista:</strong> Quando o recrutador perguntar 'Você tem alguma dúvida?', nunca diga não. Pergunte sobre os desafios do setor, como é a cultura da equipe ou quais são as métricas de sucesso para a vaga. Isso mostra interesse real.",
+                "<strong>Preparação:</strong> Antes da entrevista, pesquise a empresa. Entenda seu modelo de negócios, concorrentes e valores. Isso ajudará você a alinhar suas respostas com a cultura da organização."
+            ]
+        },
+        {
+            keywords: ["linkedin", "perfil", "rede social"],
+            responses: [
+                "<strong>Otimização de LinkedIn:</strong> Seu 'Título' (abaixo do nome) é a parte mais buscada. Não coloque apenas 'Em busca de recolocação'. Coloque os cargos e tecnologias que você domina (ex: 'Analista de Marketing | SEO | Copywriting').",
+                "<strong>Resumo (Sobre):</strong> Use a seção 'Sobre' no LinkedIn para contar sua história profissional em primeira pessoa. Fale sobre suas paixões na área, suas maiores conquistas e o que você busca para o futuro.",
+                "<strong>Networking ativo:</strong> Ter um perfil não basta. Comente em postagens da sua área, adicione recrutadores de empresas do seu interesse e peça recomendações para ex-colegas de trabalho."
+            ]
+        },
+        {
+            keywords: ["salario", "pretensao", "remuneracao", "dinheiro"],
+            responses: [
+                "<strong>Pretensão Salarial:</strong> Antes de enviar sua pretensão, pesquise a média de mercado em sites como Glassdoor ou Salario.com.br. Considere seu nível de experiência e a região da vaga.",
+                "<strong>Como responder sobre salário:</strong> Se perguntarem sua pretensão, prefira dar uma <strong>faixa salarial</strong> (ex: 'entre R$ 4.000 e R$ 5.000') em vez de um número exato. Adicione que você está aberto a negociações dependendo do pacote de benefícios.",
+                "<strong>Não minta o salário atual:</strong> Durante negociações, seja honesto sobre seu último salário se for questionado, mas foque no valor que você trará para a nova empresa para justificar o aumento desejado."
+            ]
+        },
+        {
+            keywords: ["primeiro emprego", "sem experiencia", "estagio", "jovem aprendiz"],
+            responses: [
+                "<strong>Buscando o Primeiro Emprego?</strong> Como você não tem experiência profissional, seu currículo deve focar na sua educação. Destaque projetos acadêmicos relevantes, trabalhos voluntários, cursos extracurriculares e domínio de idiomas ou softwares.",
+                "<strong>Soft Skills:</strong> Para vagas de entrada, as empresas valorizam muito a atitude. Nas entrevistas, demonstre proatividade, vontade de aprender, facilidade de trabalho em equipe e boa comunicação."
+            ]
+        },
+        {
+            keywords: ["transicao", "mudar de area", "mudanca de carreira"],
+            responses: [
+                "<strong>Transição de Carreira:</strong> O segredo aqui são as <strong>habilidades transferíveis</strong>. Pense no que você fazia na área antiga que serve para a nova (ex: atendimento ao cliente gera empatia, útil para UX Design ou Vendas).",
+                "Se está mudando de área, invista em projetos práticos ou portfólio. Mostrar que você sabe fazer (mesmo que em projetos pessoais ou cursos) vale tanto quanto experiência formal no início."
+            ]
+        },
+        {
+            keywords: ["vaga", "vagas", "emprego", "trabalho", "oportunidade"],
+            responses: [
+                "Para encontrar as melhores vagas, mantenha seu perfil na MatchHire sempre atualizado. Além disso, leia os requisitos das vagas com atenção e ajuste seu currículo para dar 'match' com o que a empresa procura.",
+                "Uma ótima estratégia de busca de vagas é mapear as 10 empresas que você mais admira e acompanhar a página de carreiras delas regularmente, além de ativar alertas em plataformas de emprego."
+            ]
+        }
+    ];
+
+    const DefaultResponses = [
+        "Compreendo. Para que eu possa te dar a melhor orientação, você poderia reformular falando especificamente sobre <strong>currículo</strong>, <strong>entrevistas</strong>, <strong>LinkedIn</strong>, <strong>pretensão salarial</strong> ou <strong>transição de carreira</strong>?",
+        "Interessante! Meu foco principal é orientação de carreira. Você gostaria de dicas sobre como melhorar seu currículo ou se preparar para entrevistas?",
+        "Não tenho certeza se entendi completamente. Posso te ajudar a se preparar para o mercado de trabalho. Quer falar sobre como destacar seu perfil no LinkedIn?"
+    ];
+
+    // 2. Controlador do Chatbot
+    class MatchHireBot {
+        constructor() {
+            this.input = document.getElementById("mensagemInput");
+            this.btn = document.getElementById("btnEnviar");
+            this.chat = document.getElementById("chat-messages");
+            this.isTyping = false;
+
+            this.bindEvents();
+            
+            // Mensagem de boas-vindas inicial (opcional)
+            setTimeout(() => {
+                this.chat.appendChild(this.createBotMessageElement("Olá! Sou o assistente de carreira da MatchHire. Digite sua dúvida sobre currículos, entrevistas, LinkedIn ou mercado de trabalho.", true));
+                this.scrollToBottom();
+            }, 500);
+        }
+
+        bindEvents() {
+            this.btn.addEventListener("click", () => this.handleSend());
+            this.input.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    this.handleSend();
+                }
+            });
+
+            document.querySelectorAll(".sugestao-btn").forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    this.input.value = e.target.textContent;
+                    this.handleSend();
+                });
+            });
+        }
+
+        scrollToBottom() {
+            this.chat.scrollTo({ top: this.chat.scrollHeight, behavior: 'smooth' });
+        }
+
+        normalizeText(text) {
+            return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        getIntentResponse(userText) {
+            const normalizedText = this.normalizeText(userText);
+            
+            for (const intent of KnowledgeBase) {
+                if (intent.keywords.some(kw => normalizedText.includes(kw))) {
+                    const randomIndex = Math.floor(Math.random() * intent.responses.length);
+                    return intent.responses[randomIndex];
+                }
+            }
+            
+            return DefaultResponses[Math.floor(Math.random() * DefaultResponses.length)];
+        }
+
+        createUserMessageElement(text) {
+            const container = document.createElement("div");
+            container.className = "chat-msg-container chat-msg-user";
+            
+            const bubble = document.createElement("div");
+            bubble.className = "chat-bubble chat-bubble-user";
+            bubble.textContent = text; 
+
+            container.appendChild(bubble);
+            return container;
+        }
+
+        createBotMessageElement(text, isHTML = false) {
+            const container = document.createElement("div");
+            container.className = "chat-msg-container chat-msg-bot";
+            
+            const bubble = document.createElement("div");
+            bubble.className = "chat-bubble chat-bubble-bot";
+            
+            if (isHTML) {
+                bubble.innerHTML = text; 
+            } else {
+                bubble.textContent = text;
+            }
+
+            container.appendChild(bubble);
+            return container;
+        }
+
+        showTypingIndicator() {
+            const container = document.createElement("div");
+            container.className = "chat-msg-container chat-msg-bot";
+            container.id = "typing-indicator-container";
+
+            const bubble = document.createElement("div");
+            bubble.className = "chat-bubble chat-bubble-bot typing-indicator";
+            bubble.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+
+            container.appendChild(bubble);
+            this.chat.appendChild(container);
+            this.scrollToBottom();
+        }
+
+        removeTypingIndicator() {
+            const indicator = document.getElementById("typing-indicator-container");
+            if (indicator) indicator.remove();
+        }
+
+        async handleSend() {
+            const text = this.input.value.trim();
+            if (!text || this.isTyping) return;
+
+            this.isTyping = true;
+            this.input.value = "";
+            this.btn.disabled = true;
+
+            this.chat.appendChild(this.createUserMessageElement(text));
+            this.scrollToBottom();
+
+            this.showTypingIndicator();
+
+            const response = this.getIntentResponse(text);
+
+            const delay = Math.floor(Math.random() * 800) + 800; // Tempo entre 800ms e 1600ms
+            
+            setTimeout(() => {
+                this.removeTypingIndicator();
+                // isHTML definido como true para aceitar o <strong> e <br> da base de conhecimento
+                this.chat.appendChild(this.createBotMessageElement(response, true));
+                this.scrollToBottom();
+                
+                this.isTyping = false;
+                this.btn.disabled = false;
+                this.input.focus();
+            }, delay);
+        }
+    }
+
+    new MatchHireBot();
+});
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
